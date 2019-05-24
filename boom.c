@@ -3,7 +3,7 @@
 #include <linux/module.h>
 #include <wrapper/vmalloc.h>
 
-static void init_fisrt_call(void)
+static void init_first_call(void)
 {
 	wrapper_vmalloc_sync_all();
 }
@@ -24,7 +24,7 @@ static void init_fourth_call(void)
 }
 
 
-static void exit_fisrt_call(void)
+static void exit_first_call(void)
 {
 	wrapper_vmalloc_sync_all();
 }
@@ -47,7 +47,7 @@ static void exit_fourth_call(void)
 
 static int __init boom_init(void)
 {
-	init_fisrt_call();
+	init_first_call();
 	init_second_call();
 	init_third_call();
 	init_fourth_call();
@@ -59,7 +59,7 @@ static int __init boom_init(void)
 
 static void __exit boom_exit(void)
 {
-	exit_fisrt_call();
+	exit_first_call();
 	exit_second_call();
 	exit_third_call();
 	exit_fourth_call();
